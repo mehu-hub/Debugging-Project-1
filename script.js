@@ -10,18 +10,23 @@ const getElement = (id) => {
 const handleSlider = (event) => {
   const charCountEl = getElement("char-count");
   charCountEl.innerText = event;
+
+  generatePassword();
 };
 
 const handleCheckbox = () => {
   const numberEl = getElement("number");
   const specialCharEl = getElement("special");
 
-  if (numberEl.checked === "true") {
-    charSet = "0123456789";
+  if (numberEl.checked === true) {
+    charSet += "0123456789";
   } else {
     charSet = charSet.replace(/0123456789/g, "");
   }
-  if (specialCharEl.checked === "true") {
+
+
+
+  if (specialCharEl.checked === true) {
     charSet += "!@#$%^&()";
   } else {
     charSet = charSet.replace(/[^\w ]/g, "");
